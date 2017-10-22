@@ -7,7 +7,8 @@ import { CardRoutingModule } from './card-routing.module';
 
 @NgModule({
   imports: [
-    CardRoutingModule
+    CardRoutingModule,
+    BrowserModule
   ],
   declarations: [
     CardDetailsComponent

@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CardDetailsComponent } from './card.component';
 
 const appRoutes: Routes = [
-  { path: 'card', component: CardDetailsComponent }
+  { path: 'card/:id', component: CardDetailsComponent }
 ];
 
 @NgModule({

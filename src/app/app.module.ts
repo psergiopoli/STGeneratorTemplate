@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpModule } from "@angular/http";
 
 import { AppComponent } from './app.component';
 
 import { CardModule } from './card/card.module';
+import { HttpClientModule } from "@angular/common/http";
+
 
 const appRoutes: Routes = []
 
@@ -14,6 +17,7 @@ const appRoutes: Routes = []
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes
     ),
