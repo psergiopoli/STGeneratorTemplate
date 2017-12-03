@@ -1,0 +1,7 @@
+<div id="card" *ngIf='ready'>
+  <div>cartinha:{{card?.id}}</div>
+    <img [src]='card.uri'>
+  </div>
+  <div *ngIf='!ready'>
+    loading card
+  </div>  

@@ -1,7 +1,13 @@
-<div>
-  <h1 class="title">Angular Router</h1>
+<div class="jumbotron">
+    Home
     <nav>
-      <a routerLink="/card" routerLinkActive="active">Crisis Center</a>
+        <a routerLink="/card/1" routerLinkActive="active">Card 1</a>
+        <a routerLink="/card/2" routerLinkActive="active">Card 2</a>
     </nav>
-    <router-outlet></router-outlet>
+    <div class="container">
+        <app-global-message></app-global-message>           
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>
