@@ -1,3 +1,4 @@
+import { CardFormComponent } from './card-form/card-form.component';
 import { ListCardComponent } from './list-card/list-card.component';
 import { LoginComponent } from './auth/login.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -8,6 +9,7 @@ import { AuthGuard } from './auth/auth.guard';
 const appRoutes: Routes = [
     { path: '', component: ListCardComponent },
     { path: 'card/:id', component: ShowCardComponent },
+    { path: 'create', component: CardFormComponent },
     { path: 'admin/login',  component: LoginComponent},    
     { path: 'admin/approve/:id', component: ApproveCardComponent, canActivate: [AuthGuard] },
     { path: '**', redirectTo: '' }

@@ -1,6 +1,6 @@
 import { LoginComponent } from './auth/login.component';
 import { AuthenticationService } from './auth/auth.service';
-import { CardService } from './show-card/card.service';
+import { CardService } from './card/card.service';
 import { GlobalEventsManager } from './global.eventmanager';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -18,6 +18,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { GlobalMessageService } from './global-message/global-message.service';
 import { GlobalMessageComponent } from './global-message/global-message.component';
 import { ListCardComponent } from './list-card/list-card.component';
+import { CardFormComponent } from './card-form/card-form.component';
 
 const appRoutes: Routes = []
 
@@ -28,7 +29,8 @@ const appRoutes: Routes = []
     ApproveCardComponent,
     GlobalMessageComponent,
     LoginComponent,
-    ListCardComponent
+    ListCardComponent,
+    CardFormComponent
   ],
   imports: [
     BrowserModule,
