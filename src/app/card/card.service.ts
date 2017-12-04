@@ -10,6 +10,10 @@ export class CardService {
 
   constructor(private http: Http,private authenticationService:AuthenticationService) {}
 
+  getPublicCards(page,size) {    
+
+  }
+
   getCard(cardId) {
     const options = new RequestOptions({url : apibaseurl+'/card/'+cardId, method: RequestMethod.Get });
     
