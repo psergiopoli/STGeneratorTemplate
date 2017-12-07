@@ -1,15 +1,17 @@
-<div class="jumbotron">
-    Home
-    <nav>
-        <a routerLink="" routerLinkActive="active">Home</a>
-        <a routerLink="/card/1" routerLinkActive="active">Card 1</a>
-        <a routerLink="/card/2" routerLinkActive="active">Card 2</a>
-        <a routerLink="/create" routerLinkActive="active">Create</a>
-    </nav>
-    <div class="container">
-        <app-global-message></app-global-message>           
-        <div>
-            <router-outlet></router-outlet>
-        </div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" routerLink="" >Super Trunfo Generator</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li routerLinkActive="active" ><a routerLink="/create" routerLinkActive="active">Criar</a></li>
+        <li routerLinkActive="active" ><a routerLink="/card/1" routerLinkActive="active">Card 1</a></li>
+    </ul>
+    </div>
+</nav>
+<div class="container">
+    <app-global-message></app-global-message>           
+    <div>
+        <router-outlet></router-outlet>
     </div>
 </div>

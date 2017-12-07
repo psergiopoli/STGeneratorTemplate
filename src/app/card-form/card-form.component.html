@@ -1,3 +1,80 @@
-<p>
-  card-form works!
-</p>
+<form enctype="multipart/form-data" #f="ngForm" (ngSubmit)="submitForm(f)">
+  <div class="col-md-6 col-sm-12 col-lg-6">
+      <div class="form-group">
+          <label for="tituloCarta">Titulo da Carta</label>
+          <input type="text" class="form-control" id="tituloCarta" placeholder="Titulo da carta"/>
+      </div>
+      <div class="form-group">
+          <label for="numeroCarta">Número da Carta</label>
+          <input type="text" class="form-control" id="numeroCarta" placeholder="Número da carta"/>
+      </div>
+      <div class="form-group">
+      <label for="publico">
+          Publico
+      </label>
+      <select class="form-control">
+          <option value="false">false</option>
+          <option value="true">true</option>
+      </select>
+      </div>
+      <div class="form-group">
+          <label for="modelo">Modelo</label>
+          <label *ngFor="let model of models">
+              <img height="150" src="http://localhost:8080/model/{{model}}">
+              <input type="radio"  name="modelo" [value]="model">
+          </label>
+      </div>
+      <div class="form-group">
+          <label for="imagem">
+              Imagem
+          </label>
+          <input type="file" class="form-control-file"/>
+      </div>
+  </div>
+  <div class="col-md-6 col-sm-12 col-lg-6">
+      <div class="form-group">
+          <label for="atributo1">Atributo - 1</label>
+          <input type="text" class="form-control" id="atributo1" placeholder="Atributo 1"/>
+      </div>
+      <div class="form-group">
+          <label for="valorAtributo1">Valor Atributo - 1</label>
+          <input type="text" class="form-control" id="valorAtributo1" placeholder="Valor Atributo 2"/>
+      </div>
+      <hr>
+      <div class="form-group">
+          <label for="atributo2">Atributo - 2</label>
+          <input type="text" class="form-control" id="atributo2" placeholder="Atributo 2"/>
+      </div>
+      <div class="form-group">
+          <label for="valorAtributo2">Valor Atributo - 2</label>
+          <input type="text" class="form-control" id="valorAtributo2" placeholder="Valor Atributo 2"/>
+      </div>
+      <hr>
+      <div class="form-group">
+          <label for="atributo3">Atributo - 3</label>
+          <input type="text" class="form-control" id="atributo2" placeholder="Atributo 3"/>
+      </div>
+      <div class="form-group">
+          <label for="valorAtributo3">Valor Atributo - 3</label>
+          <input type="text" class="form-control" id="valorAtributo2" placeholder="Valor Atributo 3"/>
+      </div>
+      <hr>
+      <div class="form-group">
+              <label for="atributo4">Atributo - 4</label>
+              <input type="text" class="form-control" id="atributo4" placeholder="Atributo 4"/>
+      </div>
+      <div class="form-group">
+          <label for="valorAtributo4">Valor Atributo - 4</label>
+          <input type="text" class="form-control" id="valorAtributo4" placeholder="Valor Atributo 4"/>
+      </div>
+      <hr>
+      <div class="form-group">
+          <label for="atributo5">Atributo - 5</label>
+          <input type="text" class="form-control" id="atributo5" placeholder="Atributo 5"/>
+      </div>
+      <div class="form-group">
+          <label for="valorAtributo5">Valor Atributo - 5</label>
+          <input type="text" class="form-control" id="valorAtributo5" placeholder="Valor Atributo 5"/>
+      </div>
+  </div>
+</form>

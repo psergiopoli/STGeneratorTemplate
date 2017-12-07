@@ -25,7 +25,7 @@ export class ShowCardComponent implements OnInit {
           this.card = card;
           this.ready = true;
          },error => {
-           this.globalMessageService.addMessage(error,'error',10);
+           this.globalMessageService.addMessage(error,'danger',10);
          });
        });
       }

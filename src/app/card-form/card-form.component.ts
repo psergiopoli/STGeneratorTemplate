@@ -1,3 +1,5 @@
+import { CardForm } from './cardForm';
+import { CardService } from './../card/card.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardFormComponent implements OnInit {
 
-  constructor() { }
+  models: any;
+  cardForm: CardForm;
+
+  constructor(private cardService:CardService) { }
 
   ngOnInit() {
+    this.cardService.getModels().subscribe(models =>{
+      this.models = models;
+    });
   }
+
+  submitForm(form:CardForm){
+    
+  }
+
 
 }

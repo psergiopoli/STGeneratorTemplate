@@ -14,6 +14,15 @@ export class CardService {
 
   }
 
+  getModels(){
+    const options = new RequestOptions({url : apibaseurl+'/model/list', method: RequestMethod.Get });
+    return this.http.request(new Request(options)).map((response: Response) => 
+        response.json()
+    ).catch(e => {
+        return Observable.throw('Internal Error');
+    });;
+  }
+
   getCard(cardId) {
     const options = new RequestOptions({url : apibaseurl+'/card/'+cardId, method: RequestMethod.Get });
     

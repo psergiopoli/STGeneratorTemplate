@@ -1,3 +1,4 @@
 .float-right{
     cursor: pointer;
+    float: right;
 }
