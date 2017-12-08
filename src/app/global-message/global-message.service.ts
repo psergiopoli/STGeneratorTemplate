@@ -1,6 +1,6 @@
+import { GlobalEventsManager } from './../shared/global.eventmanager';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import { GlobalEventsManager } from '../global.eventmanager';
  
 @Injectable()
 export class GlobalMessageService {

@@ -1,3 +1,4 @@
+import { UtilService } from './../shared/util.service';
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
@@ -6,14 +7,14 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
 
-import { apibaseurl } from '../api.baseurl';
-
  
 @Injectable()
 export class AuthenticationService {
     public token: string;
  
-    constructor(private http: Http) {
+    constructor(
+        private http: Http,
+        private util:UtilService) {
         // set token if saved in local storage
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.token = currentUser && currentUser.token;
@@ -23,7 +24,7 @@ export class AuthenticationService {
         let authParams = new URLSearchParams();
         authParams.append('username', username);
         authParams.append('password', password);
-        return this.http.post(apibaseurl+'/login', authParams)
+        return this.http.post(this.util.apibaseurl+'/login', authParams)
             .map((response: Response) => {
                 let token = response.json() && response.json().token;
                 if (token) {
@@ -51,7 +52,7 @@ export class AuthenticationService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let body = JSON.stringify({ 'email': username, 'password': password });
         let options = new RequestOptions({ headers: headers });
-        return this.http.post(apibaseurl+'/sign-in', body, options)
+        return this.http.post(this.util.apibaseurl+'/sign-in', body, options)
             .map((response: Response) => {
                 if(response.status === 201){
                     return true;

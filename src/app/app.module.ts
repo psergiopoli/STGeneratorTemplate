@@ -1,9 +1,9 @@
+import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app.routing.module';
 import { GlobalMessageModule } from './global-message/global-message.module';
 import { LoginComponent } from './auth/login.component';
 import { AuthenticationService } from './auth/auth.service';
 import { CardService } from './card/card.service';
-import { GlobalEventsManager } from './global.eventmanager';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -39,14 +39,15 @@ const appRoutes: Routes = []
     FormsModule,
     ReactiveFormsModule,
     GlobalMessageModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [
     AuthGuard,
-    GlobalEventsManager,
     CardService,
     AuthenticationService,
-    GlobalMessageModule
+    GlobalMessageModule,
+    SharedModule
   ],
   bootstrap: [AppComponent]
 })

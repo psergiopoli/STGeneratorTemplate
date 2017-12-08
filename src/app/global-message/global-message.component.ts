@@ -1,5 +1,5 @@
+import { GlobalEventsManager } from './../shared/global.eventmanager';
 import { Component, OnInit } from '@angular/core';
-import { GlobalEventsManager } from '../global.eventmanager';
 
 @Component({
   selector: 'app-global-message',

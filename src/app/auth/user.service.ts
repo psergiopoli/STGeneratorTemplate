@@ -4,18 +4,20 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
  
 import { AuthenticationService } from './auth.service';
-import { apibaseurl } from './../api.baseurl';
+import { UtilService } from '../shared/util.service';
  
 @Injectable()
 export class UserService {
     constructor(
         private http: Http,
-        private authenticationService: AuthenticationService) {
+        private authenticationService: AuthenticationService,
+        private util:UtilService
+    ) {
     }
  
     getUser() : Observable<any>{
         let headers = new Headers({ 'Authorization': this.authenticationService.token });
         let options = new RequestOptions({ headers: headers });
-        return this.http.get(apibaseurl+'/user', options).map((response: Response) => response.json());
+        return this.http.get(this.util.apibaseurl+'/user', options).map((response: Response) => response.json());
     }
 }
