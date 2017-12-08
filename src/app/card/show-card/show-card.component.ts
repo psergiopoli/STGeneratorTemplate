@@ -1,6 +1,6 @@
-import { UtilService } from './../shared/util.service';
-import { CardService } from './../card/card.service';
-import { GlobalMessageService } from './../global-message/global-message.service';
+import { UtilService } from './../../shared/util.service';
+import { GlobalMessageService } from './../../global-message/global-message.service';
+import { CardService } from './../card.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 

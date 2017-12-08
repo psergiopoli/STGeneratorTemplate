@@ -1,7 +1,7 @@
-import { CardService } from './../card/card.service';
+import { CardService } from './../card.service';
+import { GlobalMessageService } from './../../global-message/global-message.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { GlobalMessageService } from '../global-message/global-message.service';
 import { ViewChild } from '@angular/core'
 import { Router } from "@angular/router";
 
