@@ -22,6 +22,21 @@ export class ListCardComponent implements OnInit {
     this.updateCards();
   }
 
+  changePage(page){
+    this.currentPage = page;
+    this.updateCards();
+  }
+
+  nextPage(){
+    this.currentPage++;
+    this.updateCards();
+  }
+
+  previousPage(){
+    this.currentPage--
+    this.updateCards();
+  }
+
   updateCards(){
     this.cardService.paginatedCards(this.pageSize,this.currentPage).subscribe(cards =>{
       this.cards = cards;
