@@ -16,7 +16,7 @@ import { LoginComponent } from './login.component';
   declarations: [
     LoginComponent
   ],
-  providers:[    
+  providers: [
     AuthGuard,
     AuthenticationService
   ]

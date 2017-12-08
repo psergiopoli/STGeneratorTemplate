@@ -10,10 +10,10 @@ import { CommonModule } from '@angular/common';
   declarations: [
     GlobalMessageComponent
   ],
-  exports:[
+  exports: [
     GlobalMessageComponent
   ],
-  providers:[
+  providers: [
     GlobalMessageService
   ]
 })

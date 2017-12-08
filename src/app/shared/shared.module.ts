@@ -11,11 +11,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   declarations: [],
-  providers:[
+  providers: [
     GlobalEventsManager,
     UtilService
   ],
-  exports:[
+  exports: [
     FormsModule,
     ReactiveFormsModule
   ]

@@ -22,15 +22,15 @@ export class ShowCardComponent implements OnInit {
   ) {
 
   }
-    
+
      ngOnInit(): void {
        this.route.params.subscribe(params => {
-         this.cardService.getCard(params['id']).subscribe(card =>{
-          card.uri = this.util.apibaseurl+'/'+card.uri;
+         this.cardService.getCard(params['id']).subscribe(card => {
+          card.uri = this.util.apibaseurl + '/' + card.uri;
           this.card = card;
           this.ready = true;
-         },error => {
-           this.globalMessageService.addMessage(error,'danger',10);
+         }, error => {
+           this.globalMessageService.addMessage(error, 'danger', 10);
          });
        });
       }

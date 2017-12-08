@@ -10,7 +10,7 @@ export class GlobalMessageComponent implements OnInit {
 
   message = null;
 
-  constructor(private globalEventsManager: GlobalEventsManager) { 
+  constructor(private globalEventsManager: GlobalEventsManager) {
     this.addMessageWatcher();
     this.cleanMessageWatcher();
   }
@@ -23,9 +23,9 @@ export class GlobalMessageComponent implements OnInit {
 
   addMessageWatcher(){
     this.globalEventsManager.addMessage.subscribe((message: any) => {
-      this.message = {text:message.text,class:"alert alert-"+message.type};
-      if(message.timeout != null && message.timeout > 0){
-        setTimeout(()=>{ this.message = null }, message.timeout*1000)
+      this.message = {text: message.text, class: 'alert alert-' + message.type};
+      if (message.timeout != null && message.timeout > 0){
+        setTimeout(() => { this.message = null; }, message.timeout * 1000);
       }
     });
   }

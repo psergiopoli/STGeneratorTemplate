@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   { path: 'card', loadChildren: 'app/card/card.module#CardModule'},
-  { path: 'admin', loadChildren:'app/auth/auth.module#AuthModule'},
+  { path: 'admin', loadChildren: 'app/auth/auth.module#AuthModule'},
   { path: '**', redirectTo: 'card/list' }
 ];
 

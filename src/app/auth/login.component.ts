@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
- 
+
 import { AuthenticationService } from './auth.service';
- 
+
 @Component({
     moduleId: module.id,
     templateUrl: 'login.component.html'
 })
- 
+
 export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
     loadingSignup = false;
     error = '';
     message = '';
- 
+
     constructor(
         private router: Router,
         private authenticationService: AuthenticationService) { }
- 
+
     clearMessages(){
         this.error = '';
         this.message = '';
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         this.clearMessages();
         this.authenticationService.logout();
     }
- 
+
     login() {
         this.clearMessages();
         this.loading = true;
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
                     this.loading = false;
                 }
             },
-            error =>{
+            error => {
                 this.error = error;
                 this.loading = false;
             }
@@ -54,13 +54,13 @@ export class LoginComponent implements OnInit {
         this.authenticationService.signup(this.model.username, this.model.password)
             .subscribe(result => {
                 if (result === true) {
-                    this.message = "Success signup on plataform!"
+                    this.message = 'Success signup on plataform!';
                 } else {
-                    this.error = 'Error on creating user.';                    
+                    this.error = 'Error on creating user.';
                 }
                 this.loadingSignup = false;
             },
-            error =>{
+            error => {
                 this.error = error;
                 this.loadingSignup = false;
             }

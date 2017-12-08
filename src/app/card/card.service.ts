@@ -1,6 +1,6 @@
 import { UtilService } from './../shared/util.service';
 import { AuthenticationService } from './../auth/auth.service';
-import { Component,Injectable } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Http, Headers, Response, RequestOptions, RequestMethod, Request } from '@angular/http';
@@ -11,42 +11,42 @@ export class CardService {
 
   constructor(
       private http: Http,
-      private util:UtilService
+      private util: UtilService
     ) {}
 
-  createCard(card) {    
-    const options = new RequestOptions({url : this.util.apibaseurl+'/card',body:card, method: RequestMethod.Post });
-    return this.http.request(new Request(options)).map((response: Response) => 
+  createCard(card) {
+    const options = new RequestOptions({url : this.util.apibaseurl + '/card', body: card, method: RequestMethod.Post });
+    return this.http.request(new Request(options)).map((response: Response) =>
         response.json()
     ).catch(e => {
         return Observable.throw('Internal Error');
-    });;
+    });
   }
 
   getModels(){
-    const options = new RequestOptions({url : this.util.apibaseurl+'/model/list', method: RequestMethod.Get });
-    return this.http.request(new Request(options)).map((response: Response) => 
+    const options = new RequestOptions({url : this.util.apibaseurl + '/model/list', method: RequestMethod.Get });
+    return this.http.request(new Request(options)).map((response: Response) =>
         response.json()
     ).catch(e => {
         return Observable.throw('Internal Error');
-    });;
+    });
   }
 
   getCard(cardId) {
-    const options = new RequestOptions({url : this.util.apibaseurl+'/card/'+cardId, method: RequestMethod.Get });
-    
-    return this.http.request(new Request(options)).map((response: Response) => 
+    const options = new RequestOptions({url : this.util.apibaseurl + '/card/' + cardId, method: RequestMethod.Get });
+
+    return this.http.request(new Request(options)).map((response: Response) =>
         response.json()
     ).catch(e => {
         return Observable.throw('Internal Error');
-    });;
+    });
   }
 
   /*
   publishCard(cardId) {
     const headers = new Headers({ 'Authorization': this.authenticationService.token });
     const options = new RequestOptions({headers: headers, url : this.util.apibaseurl+'/card/publish/'+cardId, method: RequestMethod.Patch });
-    
+
     return this.http.request(new Request(options)).map((response: Response) => {
         return true;
     }).catch(e => {
@@ -57,7 +57,7 @@ export class CardService {
   approveCard(cardId) {
     const headers = new Headers({ 'Authorization': this.authenticationService.token });
     const options = new RequestOptions({headers: headers, url : this.util.apibaseurl+'/card/approve/'+cardId, method: RequestMethod.Patch });
-    
+
     return this.http.request(new Request(options)).map((response: Response) => {
         return true;
     }).catch(e => {

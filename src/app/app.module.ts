@@ -5,16 +5,16 @@ import { LoginComponent } from './auth/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from "@angular/http";
+import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 
 import { AuthGuard } from './auth/auth.guard';
 import { GlobalMessageComponent } from './global-message/global-message.component';
 
-const appRoutes: Routes = []
+const appRoutes: Routes = [];
 
 @NgModule({
   declarations: [
