@@ -15,7 +15,7 @@ export class UserService {
     ) {
     }
  
-    getUser() : Observable<any>{
+    getUser(){
         let headers = new Headers({ 'Authorization': this.authenticationService.token });
         let options = new RequestOptions({ headers: headers });
         return this.http.get(this.util.apibaseurl+'/user', options).map((response: Response) => response.json());

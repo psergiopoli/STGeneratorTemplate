@@ -2,6 +2,7 @@ import { UtilService } from './../shared/util.service';
 import { AuthenticationService } from './../auth/auth.service';
 import { Component,Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 import { Http, Headers, Response, RequestOptions, RequestMethod, Request } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -10,7 +11,6 @@ export class CardService {
 
   constructor(
       private http: Http,
-      private authenticationService:AuthenticationService,
       private util:UtilService
     ) {}
 
@@ -42,6 +42,7 @@ export class CardService {
     });;
   }
 
+  /*
   publishCard(cardId) {
     const headers = new Headers({ 'Authorization': this.authenticationService.token });
     const options = new RequestOptions({headers: headers, url : this.util.apibaseurl+'/card/publish/'+cardId, method: RequestMethod.Patch });
@@ -63,4 +64,5 @@ export class CardService {
         return Observable.throw('Internal Error');
     });;
   }
+  */
 }
