@@ -1,3 +1,5 @@
+import { AppRoutingModule } from './app.routing.module';
+import { GlobalMessageModule } from './global-message/global-message.module';
 import { LoginComponent } from './auth/login.component';
 import { AuthenticationService } from './auth/auth.service';
 import { CardService } from './card/card.service';
@@ -11,7 +13,6 @@ import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
 
-import { routing } from './app.routing';
 import { ShowCardComponent } from './show-card/show-card.component';
 import { ApproveCardComponent } from './approve-card/approve-card.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -27,7 +28,6 @@ const appRoutes: Routes = []
     AppComponent,
     ShowCardComponent,
     ApproveCardComponent,
-    GlobalMessageComponent,
     LoginComponent,
     ListCardComponent,
     CardFormComponent
@@ -38,17 +38,15 @@ const appRoutes: Routes = []
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    routing
-  ],
-  exports: [
-    RouterModule
+    GlobalMessageModule,
+    AppRoutingModule
   ],
   providers: [
     AuthGuard,
-    GlobalMessageService,
     GlobalEventsManager,
     CardService,
-    AuthenticationService
+    AuthenticationService,
+    GlobalMessageModule
   ],
   bootstrap: [AppComponent]
 })
