@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { UtilService } from './util.service';
 import { GlobalEventsManager } from './global.eventmanager';
 import { NgModule } from '@angular/core';
@@ -8,7 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   declarations: [],
   providers: [
@@ -17,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ]
 })
 export class SharedModule { }
