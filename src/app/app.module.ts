@@ -1,3 +1,4 @@
+import { CardModule } from './card/card.module';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app.routing.module';
 import { GlobalMessageModule } from './global-message/global-message.module';
@@ -40,11 +41,11 @@ const appRoutes: Routes = []
     ReactiveFormsModule,
     GlobalMessageModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    CardModule
   ],
   providers: [
     AuthGuard,
-    CardService,
     AuthenticationService,
     GlobalMessageModule,
     SharedModule
