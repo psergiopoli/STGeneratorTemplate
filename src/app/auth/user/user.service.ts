@@ -1,10 +1,10 @@
+import { UtilService } from './../../shared/util.service';
+import { AuthenticationService } from './../auth.service';
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { AuthenticationService } from './auth.service';
-import { UtilService } from '../shared/util.service';
 
 @Injectable()
 export class UserService {
