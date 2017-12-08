@@ -14,6 +14,15 @@ export class CardService {
       private util: UtilService
     ) {}
 
+  paginatedCards(pageSize,page){
+    const options = new RequestOptions({url : this.util.apibaseurl + '/card?page='+page+'&size='+pageSize, method: RequestMethod.Get });
+    return this.http.request(new Request(options)).map((response: Response) =>
+        response.json()
+    ).catch(e => {
+        return Observable.throw('Internal Error');
+    });
+  }
+
   createCard(card) {
     const options = new RequestOptions({url : this.util.apibaseurl + '/card', body: card, method: RequestMethod.Post });
     return this.http.request(new Request(options)).map((response: Response) =>
