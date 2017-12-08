@@ -10,8 +10,13 @@ export class CardService {
 
   constructor(private http: Http,private authenticationService:AuthenticationService) {}
 
-  getPublicCards(page,size) {    
-
+  createCard(card) {    
+    const options = new RequestOptions({url : apibaseurl+'/card',body:card, method: RequestMethod.Post });
+    return this.http.request(new Request(options)).map((response: Response) => 
+        response.json()
+    ).catch(e => {
+        return Observable.throw('Internal Error');
+    });;
   }
 
   getModels(){
