@@ -1,3 +1,18 @@
+<div *ngIf='cards' class="row text-center">
+    <app-paginate 
+    (goPage)="changePage($event)"
+    (goNext)="nextPage()"
+    (goPrev)="previousPage()"
+    [pagesToShow]="10"
+    [page]="currentPage"
+    [totalItens]="cards.totalElements"
+    [totalPages]="cards.totalPages"
+    [loading]="loading"
+    [firstPage]="cards.first"
+    [lastPage]="cards.last">
+    </app-paginate>
+  </div>
+
 <div class="row" *ngIf='cards'>
   <div class="col-xs-6 col-md-3" *ngFor="let card of cards.content">
     <a routerLink="/card/{{card.id}}" class="thumbnail">
@@ -9,28 +24,17 @@
   Loading...
 </div>
 
-<div class="row text-center">
-  <nav aria-label="Page navigation">
-    <ul class="pagination pagination-lg">
-      <li>
-        <a href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li>
-        <a href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+<div *ngIf='cards' class="row text-center">
+  <app-paginate 
+  (goPage)="changePage($event)"
+  (goNext)="nextPage()"
+  (goPrev)="previousPage()"
+  [pagesToShow]="10"
+  [page]="currentPage"
+  [totalItens]="cards.totalElements"
+  [totalPages]="cards.totalPages"
+  [loading]="loading"
+  [firstPage]="cards.first"
+  [lastPage]="cards.last">
+  </app-paginate>
 </div>
-
-{{cards | json}}
-
-{{utilService.apibaseurl}}

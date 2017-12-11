@@ -4,6 +4,7 @@ import { GlobalEventsManager } from './global.eventmanager';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PaginateComponent } from './paginate/paginate.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     HttpModule
   ],
-  declarations: [],
+  declarations: [
+    PaginateComponent
+  ],
   providers: [
     GlobalEventsManager,
     UtilService
@@ -20,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    PaginateComponent
   ]
 })
 export class SharedModule { }

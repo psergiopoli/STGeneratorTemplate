@@ -17,6 +17,7 @@ export class ListCardComponent implements OnInit {
   cards: any;
   currentPage: number = 0;
   pageSize: number = 8;
+  loading: boolean = false;
 
   ngOnInit() {
     this.updateCards();
@@ -38,8 +39,10 @@ export class ListCardComponent implements OnInit {
   }
 
   updateCards(){
+    this.loading = true;
     this.cardService.paginatedCards(this.pageSize,this.currentPage).subscribe(cards =>{
       this.cards = cards;
+      this.loading = false;
     });
   }
 
