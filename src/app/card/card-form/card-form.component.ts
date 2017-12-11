@@ -72,11 +72,13 @@ export class CardFormComponent implements OnInit {
   }
 
   submitForm(){
+    let uuid = this.generateUUID();
     if (this.formulario.valid && this.base64image != null){
       this.formulario.value.imagem = this.base64image;
+      this.formulario.value.uuid = uuid;
       this.cardService.createCard(this.formulario.value).subscribe( card => {
         this.globalMessageService.addMessage('Carta criada com sucesso', 'success', 10);
-        this.router.navigate(['card/' + card.id]);
+        this.router.navigate(['card/sec/' + uuid]);
       }, error => {
         this.globalMessageService.addMessage('Erro ao criar carta', 'danger', 10);
       });
@@ -88,7 +90,6 @@ export class CardFormComponent implements OnInit {
 
   verificaValidacoesForm(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(campo => {
-      console.log(campo);
       const controle = formGroup.get(campo);
       controle.markAsTouched();
       if (controle instanceof FormGroup) {
@@ -103,6 +104,18 @@ export class CardFormComponent implements OnInit {
     }else{
       this.faltandoImagemError = false;
     }
+  }
+
+  generateUUID () { // Public Domain/MIT
+      var d = new Date().getTime();
+      if (typeof performance !== 'undefined' && typeof performance.now === 'function'){
+          d += performance.now(); //use high-precision timer if available
+      }
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+          var r = (d + Math.random() * 16) % 16 | 0;
+          d = Math.floor(d / 16);
+          return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+      });
   }
 
 }

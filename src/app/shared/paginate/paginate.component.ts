@@ -11,7 +11,7 @@ export class PaginateComponent {
   @Input() totalItens: number;
   @Input() totalPages: number;
   @Input() loading: boolean;
-  @Input() pagesToShow: number;//pages to show in component bar
+  @Input() pagesToShow: number;//numero de paginas que serao exibidas no componente
   @Input() firstPage: boolean;
   @Input() lastPage: boolean;
   
@@ -39,7 +39,7 @@ export class PaginateComponent {
     const pages: number[] = [];
     pages.push(p);
     for (let i = 0; i < this.pagesToShow; i++) {
-      if (pages.length < this.pagesToShow) {
+      if (pages.length < this.pagesToShow) {//se chegar no tamanho das paginas que é para exibir, nao adiciona mais paginas
         if (Math.min.apply(null, pages) > 0) {
           pages.push(Math.min.apply(null, pages) - 1);
         }

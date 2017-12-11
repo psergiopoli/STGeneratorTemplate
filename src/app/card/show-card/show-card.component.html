@@ -1,7 +1,21 @@
-<div id="card" *ngIf='ready'>
-  <div>cartinha:{{card?.id}}</div>
-    <img [src]='card.uri'>
+<div id="card" *ngIf='ready' class="row">
+  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-6">
+    <label>
+      Link para compartilhar
+    </label>
+    <input #url readonly class="form-control" value="{{shareUrl}}">
+    <hr>
+    <button (click)="copyText(url)"  class="btn btn-primary">Copiar link para compartilhar</button>
+    <hr>
+    <button onclick="alert('todo')"  class="btn btn-primary">Compartilhar no Facebook</button>
+    <hr>
   </div>
-  <div *ngIf='!ready'>
-    loading card
-  </div>  
+  <div class="text-center col-lg-8 col-md-8 col-sm-6 col-xs-6">
+    <img class="stgCard" [src]='card.uri'>
+  </div>
+</div>
+
+
+<div *ngIf='!ready' class="ui-loading">
+  loading card...
+</div>  

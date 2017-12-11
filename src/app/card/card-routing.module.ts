@@ -7,7 +7,8 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: 'list', component: ListCardComponent },
   { path: 'create', component: CardFormComponent},
-  { path: ':id', component: ShowCardComponent }
+  { path: ':id', component: ShowCardComponent },
+  { path: 'sec/:uuid', component: ShowCardComponent }
 ];
 
 @NgModule({

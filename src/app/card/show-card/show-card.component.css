@@ -1,0 +1,25 @@
+.stgCard {
+    max-width: 450px;
+    height: auto;
+}
+
+@media screen and (max-width: 992px) {
+    .stgCard {
+        max-width: 300px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .stgCard {
+        max-width: 250px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 538px) {
+    .stgCard {
+        max-width: 200px;
+        height: auto;
+    }
+}
