@@ -61,6 +61,16 @@ export class CardService {
     });
   }
 
+  countViewToCard(cardId){
+    const options = new RequestOptions({url : this.util.apibaseurl + '/card/'+cardId, method: RequestMethod.Patch });
+    
+    return this.http.request(new Request(options)).map((response: Response) =>
+        response.json()
+    ).catch(e => {
+        return Observable.throw('Internal Error');
+    });
+  }
+
   /*
   publishCard(cardId) {
     const headers = new Headers({ 'Authorization': this.authenticationService.token });

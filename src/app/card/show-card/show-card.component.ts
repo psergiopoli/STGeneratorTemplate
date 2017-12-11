@@ -1,7 +1,7 @@
 import { UtilService } from './../../shared/util.service';
 import { GlobalMessageService } from './../../global-message/global-message.service';
 import { CardService } from './../card.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -19,11 +19,14 @@ export class ShowCardComponent implements OnInit {
     private cardService: CardService,
     private route: ActivatedRoute,
     private globalMessageService: GlobalMessageService,
-    private util: UtilService
+    private util: UtilService,
+    private router: Router
   ) {
 
   }
 
+  //todo
+  //melhorar esse init com codigo duplicado
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       if(params['id']){
@@ -32,8 +35,9 @@ export class ShowCardComponent implements OnInit {
         card.uri = this.util.apibaseurl + '/' + card.uri;
         this.card = card;
         this.ready = true;
+        this.countView(this.card.id);
       }, error => {
-        this.globalMessageService.addMessage(error, 'danger', 10);
+        this.router.navigate(['']);
       });
     }else if(params['uuid']){
       this.shareUrl = this.util.sitebaseurl+'/card/sec/'+params['uuid'];
@@ -41,10 +45,19 @@ export class ShowCardComponent implements OnInit {
         card.uri = this.util.apibaseurl + '/' + card.uri;
         this.card = card;
         this.ready = true;
+        this.countView(this.card.id);
       }, error => {
         this.globalMessageService.addMessage(error, 'danger', 10);
       });
     }
+    });
+  }
+
+  countView(cardId){
+    this.cardService.countViewToCard(cardId).subscribe(response =>{
+      console.log(response);
+    },error =>{
+      console.log(error);
     });
   }
 
