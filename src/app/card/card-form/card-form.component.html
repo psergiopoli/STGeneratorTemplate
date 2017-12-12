@@ -67,7 +67,7 @@
             <label class="control-label" for="modelo">Modelo</label>
             <br>
             <label class="control-label" *ngFor="let model of models">
-                <img height="150" src="{{util.apibaseurl}}/{{model}}">
+                <img height="150" src="{{util.apibaseurl}}/model/{{model}}">
                 <input formControlName="modeloSelecionado" type="radio" [value]="model">
             </label>
         </div>
