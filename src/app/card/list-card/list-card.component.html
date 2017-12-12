@@ -13,14 +13,14 @@
     </app-paginate>
   </div>
 
-<div class="row" *ngIf='cards'>
+<div *ngIf='cards'>
   <div class="col-xs-6 col-md-3" *ngFor="let card of cards.content">
     <a routerLink="/card/{{card.id}}" class="thumbnail">
       <img [src]="utilService.apibaseurl+'/cardThumb/'+card.id">
     </a>
   </div>
 </div>
-<div class="row" *ngIf='!cards'>
+<div *ngIf='!cards'>
   Loading...
 </div>
 

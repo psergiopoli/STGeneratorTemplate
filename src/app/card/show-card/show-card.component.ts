@@ -55,7 +55,6 @@ export class ShowCardComponent implements OnInit {
 
   countView(cardId){
     this.cardService.countViewToCard(cardId).subscribe(response =>{
-      console.log(response);
     },error =>{
       console.log(error);
     });
