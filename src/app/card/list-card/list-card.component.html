@@ -1,3 +1,21 @@
+<div class="row">
+  <div class="col-md-2 col-lg-2 col-xs-3">
+    <img width="125px" src="/assets/doge_2.png">
+  </div>
+  <div class="col-md-8 col-lg-8 col-xs-6 text-center">
+      <h2 class="site_title">
+          Toppers cards da galera!!  
+        </h2>
+        <h3 class="site_subtitle">
+            <a routerLink="/card/create">Gostou?? Clique aqui e crie a sua!!</a>
+        </h3>
+  </div>
+
+  <div class="col-md-2 col-lg-2 col-xs-3">
+      <img class="left_image" width="125px" src="/assets/doge_2.png">
+  </div>  
+</div>
+
 <div *ngIf='cards' class="row text-center">
     <app-paginate 
     (goPage)="changePage($event)"

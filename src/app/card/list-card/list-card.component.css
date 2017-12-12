@@ -2,3 +2,22 @@
     width: 240px;
     height: 320px;
 }
+
+.left_image {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.site_title {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    color: blueviolet;
+    font-weight: bold;
+}
+
+.site_subtitle {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    color: blue;
+    font-weight: bold;
+}
