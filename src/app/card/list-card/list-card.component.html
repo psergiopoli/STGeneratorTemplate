@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-2 col-lg-2 col-xs-3">
-    <img width="125px" src="/assets/doge_2.png">
+    <img class="doge" src="/assets/doge_2.png">
   </div>
   <div class="col-md-8 col-lg-8 col-xs-6 text-center">
       <h2 class="site_title">
@@ -12,7 +12,7 @@
   </div>
 
   <div class="col-md-2 col-lg-2 col-xs-3">
-      <img class="left_image" width="125px" src="/assets/doge_2.png">
+      <img class="left_image doge" src="/assets/doge_2.png">
   </div>  
 </div>
 
@@ -32,7 +32,7 @@
   </div>
 
 <div *ngIf='cards' class="row">
-  <div class="col-xs-6 col-md-3" *ngFor="let card of cards.content">
+  <div class="col-xs-6 col-md-3 text-center" *ngFor="let card of cards.content">
     <a routerLink="/card/{{card.id}}" class="thumbnail">
       <img [src]="utilService.apibaseurl+'/cardThumb/'+card.id">
     </a>
