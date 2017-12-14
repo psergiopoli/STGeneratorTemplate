@@ -1,4 +1,4 @@
-import { GlobalEventsManager } from './../shared/global.eventmanager';
+import { GlobalEventsManager } from './../global.eventmanager';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

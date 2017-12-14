@@ -7,6 +7,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
+import { ManageComponent } from './manage/manage.component';
+import { LoginGuard } from './login/login.guard';
 
 @NgModule({
   imports: [
@@ -15,10 +17,12 @@ import { AuthRoutingModule } from './auth-routing.module';
     SharedModule
   ],
   declarations: [
-    LoginComponent
+    LoginComponent,
+    ManageComponent
   ],
   providers: [
     AuthGuard,
+    LoginGuard,
     AuthenticationService,
     UserService
   ]

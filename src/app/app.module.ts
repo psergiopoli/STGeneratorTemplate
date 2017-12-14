@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { GlobalMessageComponent } from './global-message/global-message.component';
+import { GlobalEventsManager } from './global.eventmanager';
 
 const appRoutes: Routes = [];
 
@@ -23,6 +24,7 @@ const appRoutes: Routes = [];
   ],
   providers: [
     GlobalMessageModule,
+    GlobalEventsManager,
     SharedModule
   ],
   bootstrap: [AppComponent]

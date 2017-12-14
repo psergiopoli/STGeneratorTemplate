@@ -18,15 +18,15 @@ export class LoginComponent implements OnInit {
         private router: Router,
         private authenticationService: AuthenticationService) { }
 
+    ngOnInit() {
+        this.clearMessages();
+    }
+
     clearMessages(){
         this.error = '';
         this.message = '';
         this.loading = false;
-    }
-    ngOnInit() {
-        this.clearMessages();
-        this.authenticationService.logout();
-    }
+    }    
 
     login() {
         this.clearMessages();
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(result => {
                 if (result === true) {
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/admin/manage']);
                 } else {
                     this.error = 'Error';
                     this.loading = false;

@@ -1,10 +1,11 @@
 import { UtilService } from './../shared/util.service';
 import { AuthenticationService } from './../auth/auth.service';
 import { Component, Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 import { Http, Headers, Response, RequestOptions, RequestMethod, Request } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class CardService {

@@ -1,25 +1,27 @@
+import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { UtilService } from './util.service';
-import { GlobalEventsManager } from './global.eventmanager';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginateComponent } from './paginate/paginate.component';
 import { AdsComponent } from './ads/ads.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule 
   ],
   declarations: [
     PaginateComponent,
-    AdsComponent
+    AdsComponent,
+    NavbarComponent
   ],
   providers: [
-    GlobalEventsManager,
     UtilService
   ],
   exports: [
@@ -27,7 +29,8 @@ import { AdsComponent } from './ads/ads.component';
     ReactiveFormsModule,
     HttpModule,
     PaginateComponent,
-    AdsComponent
+    AdsComponent,
+    NavbarComponent
   ]
 })
 export class SharedModule { }

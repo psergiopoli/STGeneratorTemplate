@@ -1,4 +1,4 @@
-import { GlobalEventsManager } from './../shared/global.eventmanager';
+import { GlobalEventsManager } from './../global.eventmanager';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 

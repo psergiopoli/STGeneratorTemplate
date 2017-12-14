@@ -1,11 +1,12 @@
+import { Router } from '@angular/router';
 import { UtilService } from './../shared/util.service';
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http, Headers, Response, RequestMethod, Request, RequestOptions, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { URLSearchParams, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/throw';
 
 
 @Injectable()
@@ -14,7 +15,8 @@ export class AuthenticationService {
 
     constructor(
         private http: Http,
-        private util: UtilService) {
+        private util: UtilService,
+        private router: Router,) {
         // set token if saved in local storage
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.token = currentUser && currentUser.token;
@@ -62,5 +64,16 @@ export class AuthenticationService {
             }).catch(e => {
                 return Observable.throw('Internal Error');
             });
+    }
+
+    checkUserCanLogin(){
+        const headers = new Headers({ 'Authorization': this.token });
+        const options = new RequestOptions({headers: headers, url : this.util.apibaseurl + '/user', method: RequestMethod.Get });
+        return this.http.request(new Request(options)).map((response: Response)=>{
+            this.router.navigate(['/admin/manage']);  
+            return false;
+        }).catch(e => {
+            return Observable.of(true);
+        });
     }
 }
