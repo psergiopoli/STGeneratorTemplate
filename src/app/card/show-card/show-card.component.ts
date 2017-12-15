@@ -25,6 +25,13 @@ export class ShowCardComponent implements OnInit {
 
   }
 
+  setCardValues(card){
+    this.card = card;
+    this.card.uri = this.util.apibaseurl + this.card.uri;
+    this.ready = true;
+    this.countView(this.card.id);
+  }
+
   //todo
   //melhorar esse init com codigo duplicado
   ngOnInit(): void {
@@ -32,25 +39,21 @@ export class ShowCardComponent implements OnInit {
       if(params['id']){
       this.shareUrl = this.util.sitebaseurl+'/card/'+params['id'];
       this.cardService.getCard(params['id']).subscribe(card => {
-        card.uri = this.util.apibaseurl + '/' + card.uri;
-        this.card = card;
-        this.ready = true;
-        this.countView(this.card.id);
+        this.setCardValues(card);
       }, error => {
         this.router.navigate(['']);
+        this.globalMessageService.addMessage(error, 'danger', 10);
       });
     }else if(params['uuid']){
       this.shareUrl = this.util.sitebaseurl+'/card/sec/'+params['uuid'];
       this.cardService.getCardByUUID(params['uuid']).subscribe(card => {
-        card.uri = this.util.apibaseurl + '/' + card.uri;
-        this.card = card;
-        this.ready = true;
-        this.countView(this.card.id);
+        this.setCardValues(card);
       }, error => {
+        this.router.navigate(['']);
         this.globalMessageService.addMessage(error, 'danger', 10);
       });
     }
-    });
+    });    
   }
 
   countView(cardId){
