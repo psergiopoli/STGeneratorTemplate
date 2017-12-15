@@ -45,4 +45,18 @@ export class ManageComponent implements OnInit {
       this.loading = false;
     });
   }
+
+  publishCard(event,cardId){
+    event.target.disabled = true;
+    this.cardAdminService.publishCard(cardId).subscribe(result =>{
+      event.target.disabled = false;
+    });
+  }
+
+  approveCard(event,cardId){
+    event.target.disabled = true;
+    this.cardAdminService.approveCard(cardId).subscribe(result =>{
+      event.target.disabled = false;
+    });
+  }
 }
