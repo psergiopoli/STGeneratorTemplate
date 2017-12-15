@@ -1,3 +1,39 @@
-<p>
-  manage works!
-</p>
+<div *ngIf='cards' class="row text-center">
+  <app-paginate 
+  (goPage)="changePage($event)"
+  (goNext)="nextPage()"
+  (goPrev)="previousPage()"
+  [pagesToShow]="10"
+  [page]="currentPage"
+  [totalItens]="cards.totalElements"
+  [totalPages]="cards.totalPages"
+  [loading]="loading"
+  [firstPage]="cards.first"
+  [lastPage]="cards.last">
+  </app-paginate>
+</div>
+
+<div *ngIf='cards'>
+  <div class="col-xs-6 col-md-3 text-center" *ngFor="let card of cards.content">
+    <a routerLink="/card/{{card.id}}" class="thumbnail" [ngStyle]="{'background-image': 'url(' + utilService.apibaseurl+'/cardThumb/'+card.id + ')'}">
+    </a>
+  </div>
+</div>
+<div *ngIf='!cards'>
+  Loading...
+</div>
+
+<div *ngIf='cards' class="row text-center">
+  <app-paginate 
+  (goPage)="changePage($event)"
+  (goNext)="nextPage()"
+  (goPrev)="previousPage()"
+  [pagesToShow]="10"
+  [page]="currentPage"
+  [totalItens]="cards.totalElements"
+  [totalPages]="cards.totalPages"
+  [loading]="loading"
+  [firstPage]="cards.first"
+  [lastPage]="cards.last">
+  </app-paginate>
+</div>

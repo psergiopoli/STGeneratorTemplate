@@ -1,5 +1,4 @@
 import { UtilService } from './../shared/util.service';
-import { AuthenticationService } from './../auth/auth.service';
 import { Component, Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions, RequestMethod, Request } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -71,28 +70,4 @@ export class CardService {
         return Observable.throw('Internal Error');
     });
   }
-
-  /*
-  publishCard(cardId) {
-    const headers = new Headers({ 'Authorization': this.authenticationService.token });
-    const options = new RequestOptions({headers: headers, url : this.util.apibaseurl+'/card/publish/'+cardId, method: RequestMethod.Patch });
-
-    return this.http.request(new Request(options)).map((response: Response) => {
-        return true;
-    }).catch(e => {
-        return Observable.throw('Internal Error');
-    });;
-  }
-
-  approveCard(cardId) {
-    const headers = new Headers({ 'Authorization': this.authenticationService.token });
-    const options = new RequestOptions({headers: headers, url : this.util.apibaseurl+'/card/approve/'+cardId, method: RequestMethod.Patch });
-
-    return this.http.request(new Request(options)).map((response: Response) => {
-        return true;
-    }).catch(e => {
-        return Observable.throw('Internal Error');
-    });;
-  }
-  */
 }

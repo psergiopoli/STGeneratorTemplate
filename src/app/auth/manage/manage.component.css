@@ -1,0 +1,9 @@
+.thumbnail{
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-bottom: 147%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+}

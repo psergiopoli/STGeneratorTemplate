@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { ManageComponent } from './manage/manage.component';
 import { LoginGuard } from './login/login.guard';
+import { CardAdminService } from './card-admin.service';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { LoginGuard } from './login/login.guard';
     AuthGuard,
     LoginGuard,
     AuthenticationService,
-    UserService
+    UserService,
+    CardAdminService
   ]
 })
 export class AuthModule { }
