@@ -27,7 +27,7 @@ export class ShowCardComponent implements OnInit {
     let initParams: InitParams = {
       appId: '313598605808575',
       xfbml: true,
-      version: 'v2.11'
+      version: 'v2.8'
     };
      fb.init(initParams);
   }
