@@ -7,6 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginateComponent } from './paginate/paginate.component';
 import { AdsComponent } from './ads/ads.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FacebookModule } from 'ngx-facebook';
+import { FacebookService } from 'ngx-facebook/dist/esm/providers/facebook';
 
 @NgModule({
   imports: [
@@ -14,7 +16,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule 
+    RouterModule,
+    FacebookModule
   ],
   declarations: [
     PaginateComponent,
@@ -22,7 +25,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     NavbarComponent
   ],
   providers: [
-    UtilService
+    UtilService,
+    FacebookService
   ],
   exports: [
     FormsModule,
@@ -30,7 +34,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     HttpModule,
     PaginateComponent,
     AdsComponent,
-    NavbarComponent
+    NavbarComponent,
+    FacebookModule
   ]
 })
 export class SharedModule { }

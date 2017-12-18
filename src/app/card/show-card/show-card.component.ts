@@ -3,6 +3,7 @@ import { GlobalMessageService } from './../../global-message/global-message.serv
 import { CardService } from './../card.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { FacebookService, InitParams } from 'ngx-facebook';
 
 @Component({
   selector: 'app-show-card',
@@ -20,9 +21,15 @@ export class ShowCardComponent implements OnInit {
     private route: ActivatedRoute,
     private globalMessageService: GlobalMessageService,
     private util: UtilService,
-    private router: Router
+    private router: Router,
+    private fb: FacebookService
   ) {
-
+    let initParams: InitParams = {
+      appId: '313598605808575',
+      xfbml: true,
+      version: 'v2.11'
+    };
+     fb.init(initParams);
   }
 
   setCardValues(card){

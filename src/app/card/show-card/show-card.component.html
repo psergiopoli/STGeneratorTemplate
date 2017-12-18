@@ -7,7 +7,7 @@
     <hr>
     <button (click)="copyText(url)"  class="btn btn-primary">Copiar link para compartilhar</button>
     <hr>
-    <button onclick="alert('todo')"  class="btn btn-primary">Compartilhar no Facebook</button>
+    <fb-share layout="button_count" mobileIframe="true" size="large" href="{{shareUrl}}"></fb-share>
     <hr>
     <h3>Vizualizações : {{card.views}}</h3>
   </div>
