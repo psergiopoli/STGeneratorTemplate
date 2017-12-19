@@ -15,6 +15,11 @@ export class ShowCardComponent implements OnInit {
   card;
   ready = false;
   shareUrl: string;
+  initParams: InitParams = {
+    appId: '313598605808575',
+    xfbml: true,
+    version: 'v2.11'
+  };
 
   constructor(
     private cardService: CardService,
@@ -24,12 +29,6 @@ export class ShowCardComponent implements OnInit {
     private router: Router,
     private fb: FacebookService
   ) {
-    let initParams: InitParams = {
-      appId: '313598605808575',
-      xfbml: true,
-      version: 'v2.11'
-    };
-     fb.init(initParams);
   }
 
   setCardValues(card){
@@ -42,6 +41,7 @@ export class ShowCardComponent implements OnInit {
   //todo
   //melhorar esse init com codigo duplicado
   ngOnInit(): void {
+    this.fb.init(this.initParams);
     this.route.params.subscribe(params => {
       if(params['id']){
       this.shareUrl = this.util.sitebaseurl+'/card/'+params['id'];
