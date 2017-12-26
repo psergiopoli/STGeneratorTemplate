@@ -1,4 +1,4 @@
-<div class="form-group" [ngClass]="{'has-error':faltandoImagemError,'has-feedback':faltandoImagemError}">
+<div class="form-group">
   <p *ngIf="errorMsg" class="alert alert-warning">{{errorMsg}}</p>
   <img class="image" *ngIf="base64image" [src]="base64image"/>
   <div class="no-image" *ngIf="!base64image"></div>
