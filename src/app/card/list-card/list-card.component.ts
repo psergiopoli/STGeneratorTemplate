@@ -1,4 +1,3 @@
-import { UtilService } from './../../shared/util.service';
 import { CardService } from './../card.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,8 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ListCardComponent implements OnInit {
 
   constructor(
-    private cardService: CardService,
-    public utilService: UtilService
+    private cardService: CardService
   ) { }
 
   cards: any;

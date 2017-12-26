@@ -1,6 +1,6 @@
-import { UtilService } from './../../shared/util.service';
 import { CardAdminService } from './../card-admin.service';
 import { Component, OnInit } from '@angular/core';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-manage',
@@ -10,14 +10,14 @@ import { Component, OnInit } from '@angular/core';
 export class ManageComponent implements OnInit {
 
   constructor(
-    private cardAdminService: CardAdminService,
-    private utilService: UtilService
+    private cardAdminService: CardAdminService
   ) { }
 
   cards: any;
   currentPage: number = 0;
   pageSize: number = 8;
   loading: boolean = false;
+  environment = environment;
 
   ngOnInit() {
     this.updateCards();

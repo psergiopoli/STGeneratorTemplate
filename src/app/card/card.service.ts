@@ -1,21 +1,20 @@
-import { UtilService } from './../shared/util.service';
 import { Component, Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions, RequestMethod, Request } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import { environment } from '@env/environment';
 
 @Injectable()
 export class CardService {
 
   constructor(
-      private http: Http,
-      private util: UtilService
+      private http: Http
     ) {}
 
   paginatedCards(pageSize,page){
-    const options = new RequestOptions({url : this.util.apibaseurl + '/card?page='+page+'&size='+pageSize, method: RequestMethod.Get });
+    const options = new RequestOptions({url : environment.apibaseurl + '/card?page='+page+'&size='+pageSize, method: RequestMethod.Get });
     return this.http.request(new Request(options)).map((response: Response) =>
         response.json()
     ).catch(e => {
@@ -24,7 +23,7 @@ export class CardService {
   }
 
   createCard(card) {
-    const options = new RequestOptions({url : this.util.apibaseurl + '/card', body: card, method: RequestMethod.Post });
+    const options = new RequestOptions({url : environment.apibaseurl + '/card', body: card, method: RequestMethod.Post });
     return this.http.request(new Request(options)).map((response: Response) =>
         response.json()
     ).catch(e => {
@@ -33,7 +32,7 @@ export class CardService {
   }
 
   getModels(){
-    const options = new RequestOptions({url : this.util.apibaseurl + '/model/list', method: RequestMethod.Get });
+    const options = new RequestOptions({url : environment.apibaseurl + '/model/list', method: RequestMethod.Get });
     return this.http.request(new Request(options)).map((response: Response) =>
         response.json()
     ).catch(e => {
@@ -42,7 +41,7 @@ export class CardService {
   }
 
   getCard(cardId) {
-    const options = new RequestOptions({url : this.util.apibaseurl + '/card/' + cardId, method: RequestMethod.Get });
+    const options = new RequestOptions({url : environment.apibaseurl + '/card/' + cardId, method: RequestMethod.Get });
 
     return this.http.request(new Request(options)).map((response: Response) =>
         response.json()
@@ -52,7 +51,7 @@ export class CardService {
   }
 
   getCardByUUID(cardUUID){
-    const options = new RequestOptions({url : this.util.apibaseurl + '/card/hash/' + cardUUID, method: RequestMethod.Get });
+    const options = new RequestOptions({url : environment.apibaseurl + '/card/hash/' + cardUUID, method: RequestMethod.Get });
     
     return this.http.request(new Request(options)).map((response: Response) =>
         response.json()
@@ -62,7 +61,7 @@ export class CardService {
   }
 
   countViewToCard(cardId){
-    const options = new RequestOptions({url : this.util.apibaseurl + '/card/'+cardId, method: RequestMethod.Patch });
+    const options = new RequestOptions({url : environment.apibaseurl + '/card/'+cardId, method: RequestMethod.Patch });
     
     return this.http.request(new Request(options)).map((response: Response) =>
         response.json()

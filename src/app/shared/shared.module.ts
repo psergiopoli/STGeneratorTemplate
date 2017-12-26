@@ -1,6 +1,5 @@
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { UtilService } from './util.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,7 +24,6 @@ import { FacebookService } from 'ngx-facebook/dist/esm/providers/facebook';
     NavbarComponent
   ],
   providers: [
-    UtilService,
     FacebookService
   ],
   exports: [

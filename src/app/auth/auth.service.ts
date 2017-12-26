@@ -1,5 +1,4 @@
 import { Router } from '@angular/router';
-import { UtilService } from './../shared/util.service';
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestMethod, Request, RequestOptions, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -7,6 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/throw';
+import { environment } from '@env/environment';
 
 
 @Injectable()
@@ -15,7 +15,6 @@ export class AuthenticationService {
 
     constructor(
         private http: Http,
-        private util: UtilService,
         private router: Router,) {
         // set token if saved in local storage
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -26,7 +25,7 @@ export class AuthenticationService {
         const authParams = new URLSearchParams();
         authParams.append('username', username);
         authParams.append('password', password);
-        return this.http.post(this.util.apibaseurl + '/login', authParams)
+        return this.http.post(environment.apibaseurl + '/login', authParams)
             .map((response: Response) => {
                 const token = response.json() && response.json().token;
                 if (token) {
@@ -54,7 +53,7 @@ export class AuthenticationService {
         const headers = new Headers({ 'Content-Type': 'application/json' });
         const body = JSON.stringify({ 'email': username, 'password': password });
         const options = new RequestOptions({ headers: headers });
-        return this.http.post(this.util.apibaseurl + '/sign-in', body, options)
+        return this.http.post(environment.apibaseurl + '/sign-in', body, options)
             .map((response: Response) => {
                 if (response.status === 201) {
                     return true;
@@ -68,7 +67,7 @@ export class AuthenticationService {
 
     checkUserCanLogin(){
         const headers = new Headers({ 'Authorization': this.token });
-        const options = new RequestOptions({headers: headers, url : this.util.apibaseurl + '/user', method: RequestMethod.Get });
+        const options = new RequestOptions({headers: headers, url : environment.apibaseurl + '/user', method: RequestMethod.Get });
         return this.http.request(new Request(options)).map((response: Response)=>{
             this.router.navigate(['/admin/manage']);  
             return false;

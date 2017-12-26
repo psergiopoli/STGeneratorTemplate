@@ -1,9 +1,9 @@
-import { UtilService } from './../../shared/util.service';
 import { GlobalMessageService } from './../../global-message/global-message.service';
 import { CardService } from './../card.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FacebookService, InitParams } from 'ngx-facebook';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-show-card',
@@ -25,7 +25,6 @@ export class ShowCardComponent implements OnInit {
     private cardService: CardService,
     private route: ActivatedRoute,
     private globalMessageService: GlobalMessageService,
-    private util: UtilService,
     private router: Router,
     private fb: FacebookService
   ) {
@@ -33,7 +32,7 @@ export class ShowCardComponent implements OnInit {
 
   setCardValues(card){
     this.card = card;
-    this.card.uri = this.util.apibaseurl + this.card.uri;
+    this.card.uri = environment.apibaseurl + this.card.uri;
     this.ready = true;
     this.countView(this.card.id);
   }
@@ -44,7 +43,7 @@ export class ShowCardComponent implements OnInit {
     this.fb.init(this.initParams);
     this.route.params.subscribe(params => {
       if(params['id']){
-      this.shareUrl = this.util.sitebaseurl+'/card/'+params['id'];
+      this.shareUrl = environment.sitebaseurl+'/card/'+params['id'];
       this.cardService.getCard(params['id']).subscribe(card => {
         this.setCardValues(card);
       }, error => {
@@ -52,7 +51,7 @@ export class ShowCardComponent implements OnInit {
         this.globalMessageService.addMessage(error, 'danger', 10);
       });
     }else if(params['uuid']){
-      this.shareUrl = this.util.sitebaseurl+'/card/sec/'+params['uuid'];
+      this.shareUrl = environment.sitebaseurl+'/card/sec/'+params['uuid'];
       this.cardService.getCardByUUID(params['uuid']).subscribe(card => {
         this.setCardValues(card);
       }, error => {

@@ -1,10 +1,10 @@
-import { UtilService } from './../../shared/util.service';
 import { CardService } from './../card.service';
 import { GlobalMessageService } from './../../global-message/global-message.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-card-form',
@@ -19,13 +19,13 @@ export class CardFormComponent implements OnInit {
   @ViewChild('image') image;
   base64image: string = null;
   faltandoImagemError = false;
+  environment = environment;
 
   constructor(
     private cardService: CardService,
     private formBuilder: FormBuilder,
     private globalMessageService: GlobalMessageService,
-    private router: Router,
-    private util: UtilService
+    private router: Router
   ) { }
 
   ngOnInit() {
