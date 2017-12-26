@@ -1,5 +1,6 @@
 import { CardService } from './../card.service';
 import { Component, OnInit } from '@angular/core';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-list-card',
@@ -16,6 +17,7 @@ export class ListCardComponent implements OnInit {
   currentPage: number = 0;
   pageSize: number = 8;
   loading: boolean = false;
+  environment = environment;
 
   ngOnInit() {
     this.updateCards();
