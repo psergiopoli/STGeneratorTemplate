@@ -1,83 +1,74 @@
 <form enctype="multipart/form-data" [formGroup]="formulario" (ngSubmit)="submitForm()">
   <div class="col-md-6 col-sm-12 col-lg-6">
-      <div class="form-group" [ngClass]="aplicaCssErro('atributo1')">
-          <label class="control-label" for="atributo1">Atributo - 1</label>
-          <input type="text" class="form-control" formControlName="atributo1" placeholder="Atributo 1"/>
-      </div>
-      <div class="form-group" [ngClass]="aplicaCssErro('valorAtributo1')">
-          <label class="control-label" for="valorAtributo1">Valor Atributo - 1</label>
-          <input type="text" class="form-control" formControlName="valorAtributo1" placeholder="Valor Atributo 2"/>
-      </div>
+      <app-form-group-input [form]="formulario" [label]="'Atributo - 1'" 
+      [field]="'atributo1'" formControlName="atributo1" ngDefaultControl>
+      </app-form-group-input>
+
+      <app-form-group-input [form]="formulario" [label]="'Valor Atributo - 1'"
+      [field]="'valorAtributo1'" formControlName="valorAtributo1" ngDefaultControl>
+      </app-form-group-input>
       <hr>
-      <div class="form-group" [ngClass]="aplicaCssErro('atributo2')">
-          <label class="control-label" for="atributo2">Atributo - 2</label>
-          <input type="text" class="form-control" formControlName="atributo2" placeholder="Atributo 2"/>
-      </div>
-      <div class="form-group" [ngClass]="aplicaCssErro('valorAtributo2')">
-          <label class="control-label" for="valorAtributo2">Valor Atributo - 2</label>
-          <input type="text" class="form-control" formControlName="valorAtributo2" placeholder="Valor Atributo 2"/>
-      </div>
+
+      <app-form-group-input [form]="formulario" [label]="'Atributo - 2'" 
+      [field]="'atributo2'" formControlName="atributo2" ngDefaultControl>
+      </app-form-group-input>
+
+      <app-form-group-input [form]="formulario" [label]="'Valor Atributo - 2'"
+      [field]="'valorAtributo2'" formControlName="valorAtributo2" ngDefaultControl>
+      </app-form-group-input>
       <hr>
-      <div class="form-group" [ngClass]="aplicaCssErro('atributo3')">
-          <label class="control-label" for="atributo3">Atributo - 3</label>
-          <input type="text" class="form-control" formControlName="atributo3" placeholder="Atributo 3"/>
-      </div>
-      <div class="form-group" [ngClass]="aplicaCssErro('valorAtributo3')">
-          <label class="control-label" for="valorAtributo3">Valor Atributo - 3</label>
-          <input type="text" class="form-control" formControlName="valorAtributo3" placeholder="Valor Atributo 3"/>
-      </div>
+
+      <app-form-group-input [form]="formulario" [label]="'Atributo - 3'" 
+      [field]="'atributo3'" formControlName="atributo3" ngDefaultControl>
+      </app-form-group-input>
+
+      <app-form-group-input [form]="formulario" [label]="'Valor Atributo - 3'"
+      [field]="'valorAtributo3'" formControlName="valorAtributo3" ngDefaultControl>
+      </app-form-group-input>
       <hr>
-      <div class="form-group" [ngClass]="aplicaCssErro('atributo4')">
-              <label class="control-label" for="atributo4">Atributo - 4</label>
-              <input type="text" class="form-control" formControlName="atributo4" placeholder="Atributo 4"/>
-      </div>
-      <div class="form-group" [ngClass]="aplicaCssErro('valorAtributo4')">
-          <label class="control-label" for="valorAtributo4">Valor Atributo - 4</label>
-          <input type="text" class="form-control" formControlName="valorAtributo4" placeholder="Valor Atributo 4"/>
-      </div>
+
+      <app-form-group-input [form]="formulario" [label]="'Atributo - 4'" 
+      [field]="'atributo4'" formControlName="atributo4" ngDefaultControl>
+      </app-form-group-input>
+
+      <app-form-group-input [form]="formulario" [label]="'Valor Atributo - 4'"
+      [field]="'valorAtributo4'" formControlName="valorAtributo4" ngDefaultControl>
+      </app-form-group-input>
       <hr>
-      <div class="form-group" [ngClass]="aplicaCssErro('atributo5')">
-          <label class="control-label" for="atributo5">Atributo - 5</label>
-          <input type="text" class="form-control" formControlName="atributo5" placeholder="Atributo 5"/>
-      </div>
-      <div class="form-group" [ngClass]="aplicaCssErro('valorAtributo5')">
-          <label class="control-label" for="valorAtributo5">Valor Atributo - 5</label>
-          <input type="text" class="form-control" formControlName="valorAtributo5" placeholder="Valor Atributo 5"/>
-      </div>
+
+      <app-form-group-input [form]="formulario" [label]="'Atributo - 5'" 
+      [field]="'atributo5'" formControlName="atributo5" ngDefaultControl>
+      </app-form-group-input>
+
+      <app-form-group-input [form]="formulario" [label]="'Valor Atributo - 5'"
+      [field]="'valorAtributo5'" formControlName="valorAtributo5" ngDefaultControl>
+      </app-form-group-input>
+
   </div>
   <div class="col-md-6 col-sm-12 col-lg-6">
-        <div class="form-group" [ngClass]="aplicaCssErro('tituloCarta')">
-            <label class="control-label" for="tituloCarta">Titulo da Carta</label>
-            <input type="text" class="form-control" formControlName="tituloCarta" placeholder="Titulo da carta"/>
-        </div>
-        <div class="form-group" [ngClass]="aplicaCssErro('numeroCarta')">
-            <label class="control-label" for="numeroCarta">Número da Carta</label>
-            <input type="text" class="form-control" formControlName="numeroCarta" placeholder="Número da carta"/>
-        </div>
-        <div class="form-group" [ngClass]="aplicaCssErro('publico')">
-        <label class="control-label" for="publico">
-            Público
-        </label>
-        <select class="form-control" formControlName="publico">
-            <option value="false">Não</option>
-            <option value="true">Sim</option>
-        </select>
-        </div>
-        <div class="form-group" [ngClass]="aplicaCssErro('publico')">
+        <app-form-group-input [form]="formulario" [label]="'Titulo da Carta'" 
+        [field]="'tituloCarta'" formControlName="tituloCarta" ngDefaultControl>
+        </app-form-group-input>
+
+        <app-form-group-input [form]="formulario" [label]="'Número da Carta'" 
+        [field]="'numeroCarta'" formControlName="numeroCarta" ngDefaultControl>
+        </app-form-group-input>
+
+        <app-form-group-select [form]="formulario" [label]="'Publicar carta para todos?'" 
+        [field]="'publico'" formControlName="publico" [options]="[{label:'Sim',value:true},{label:'Não',value:false}]" ngDefaultControl>
+        </app-form-group-select>
+
+        <div class="form-group">
             <label class="control-label" for="modelo">Modelo</label>
             <br>
             <label class="control-label" *ngFor="let model of models">
                 <img height="150" src="{{environment.apibaseurl}}/model/{{model}}">
                 <input formControlName="modeloSelecionado" type="radio" [value]="model">
             </label>
-        </div>
-        <div class="form-group" [ngClass]="{'has-error':faltandoImagemError,'has-feedback':faltandoImagemError}">
-            <label class="control-label" for="imagem">
-                Imagem
-            </label>
-            <img height="120" *ngIf="base64image" [src]="base64image"/>
-            <input #image type="file" accept="image/*" class="form-control-file" (change)="selectImage()"/>
-        </div>
+        </div> 
+
+        <app-file-upload (onImageSelect)="selectImage($event)" [errorMsg]="imageEmpty"></app-file-upload>
+        
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
                 Criar carta

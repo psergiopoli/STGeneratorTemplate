@@ -1,0 +1,10 @@
+<div class="form-group" [ngClass]="{'has-error':faltandoImagemError,'has-feedback':faltandoImagemError}">
+  <p *ngIf="errorMsg" class="alert alert-warning">{{errorMsg}}</p>
+  <img class="image" *ngIf="base64image" [src]="base64image"/>
+  <div class="no-image" *ngIf="!base64image"></div>
+  <br>
+  <label class="btn btn-primary" for="image">
+      <span class="glyphicon glyphicon-upload"></span> Imagem da carta
+  </label>
+<input #image type="file" accept="image/*" class="form-control-file" (change)="selectImage()" id="image"/>
+</div>

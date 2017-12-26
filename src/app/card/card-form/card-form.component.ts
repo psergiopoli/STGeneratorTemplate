@@ -16,9 +16,9 @@ export class CardFormComponent implements OnInit {
   models: any;
   formulario: FormGroup;
 
-  @ViewChild('image') image;
   base64image: string = null;
-  faltandoImagemError = false;
+  imageEmpty;
+
   environment = environment;
 
   constructor(
@@ -53,25 +53,8 @@ export class CardFormComponent implements OnInit {
     });
   }
 
-  verificarValidAndTouched(campo){
-    return !this.formulario.get(campo).valid && this.formulario.get(campo).touched;
-  }
-
-  aplicaCssErro(campo){
-    return {
-      'has-error': this.verificarValidAndTouched(campo),
-      'has-feedback': this.verificarValidAndTouched(campo)
-    };
-  }
-
-  selectImage() {
-    const file: File = this.image.nativeElement.files[0];
-    const fileReader: FileReader = new FileReader();
-
-    fileReader.onloadend = (e) => {
-      this.base64image = fileReader.result;
-    };
-    fileReader.readAsDataURL(file);
+  selectImage(base64image: string) {
+    this.base64image = base64image;
   }
 
   submitForm(){
@@ -85,9 +68,11 @@ export class CardFormComponent implements OnInit {
       }, error => {
         this.globalMessageService.addMessage('Erro ao criar carta', 'danger', 10);
       });
-    }else{
-      this.verificarImagem();
+    }else{      
       this.verificaValidacoesForm(this.formulario);
+      if(this.base64image == null){
+        this.imageEmpty = 'Imagem necessária';
+      }
     }
   }
 
@@ -99,14 +84,6 @@ export class CardFormComponent implements OnInit {
         this.verificaValidacoesForm(controle);
       }
     });
-  }
-
-  verificarImagem(){
-    if (this.base64image == null){
-      this.faltandoImagemError = true;
-    }else{
-      this.faltandoImagemError = false;
-    }
   }
 
   generateUUID () { // Public Domain/MIT

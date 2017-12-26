@@ -8,6 +8,10 @@ import { AdsComponent } from './ads/ads.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FacebookModule } from 'ngx-facebook';
 import { FacebookService } from 'ngx-facebook/dist/esm/providers/facebook';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { FormGroupComponent } from './form-group/form-group.component';
+import { FormGroupSelectComponent } from './form-group-select/form-group-select.component';
+import { FormGroupInputComponent } from './form-group-input/form-group-input.component';
 
 @NgModule({
   imports: [
@@ -21,7 +25,10 @@ import { FacebookService } from 'ngx-facebook/dist/esm/providers/facebook';
   declarations: [
     PaginateComponent,
     AdsComponent,
-    NavbarComponent
+    NavbarComponent,
+    FileUploadComponent,
+    FormGroupSelectComponent,
+    FormGroupInputComponent
   ],
   providers: [
     FacebookService
@@ -33,7 +40,10 @@ import { FacebookService } from 'ngx-facebook/dist/esm/providers/facebook';
     PaginateComponent,
     AdsComponent,
     NavbarComponent,
-    FacebookModule
+    FacebookModule,
+    FileUploadComponent,
+    FormGroupInputComponent,
+    FormGroupSelectComponent
   ]
 })
 export class SharedModule { }
