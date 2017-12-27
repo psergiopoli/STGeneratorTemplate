@@ -16,20 +16,20 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class AppHttpInterceptor implements HttpInterceptor {
 
-  constructor(private globalMessageService: GlobalMessageService,) {
+  constructor(private globalMessageService: GlobalMessageService) {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if(!environment.production){
       console.log(request);
-    }    
+    }
     return next.handle(request).do((event: HttpEvent<any>) => {
       if (event instanceof HttpResponse) {
-        //success
+        //nada
       }
     }, (err: any) => {
       if (err instanceof HttpErrorResponse) {
-        switch(err.status) { 
+        switch(err.status) {           
           case 401: { 
             this.globalMessageService.addMessage("Acesso negado ao recurso: "+request.url, 'danger', 10);
           break; 

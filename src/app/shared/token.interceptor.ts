@@ -22,16 +22,16 @@ export class TokenInterceptor implements HttpInterceptor {
       console.log(request);
       console.log(this.router.url);
     }
+    
     if(this.router.url.indexOf('admin') >- 1){
-      if(!environment.production){
-        console.log('sending token');
-      }
       const auth = this.injector.get(AuthenticationService);
-      request = request.clone({
-        setHeaders: {
-          Authorization: auth.token
-        }
-      });
+      if(auth.token != null){
+        request = request.clone({
+          setHeaders: {
+            Authorization: auth.token
+          }
+        });
+      }
     } 
     return next.handle(request);
   }

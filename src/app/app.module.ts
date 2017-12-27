@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { GlobalMessageComponent } from './global-message/global-message.component';
 import { GlobalEventsManager } from './global.eventmanager';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NavbarGuard } from './navbar.guard';
 
 const appRoutes: Routes = [];
 
@@ -26,7 +27,8 @@ const appRoutes: Routes = [];
   providers: [
     GlobalMessageModule,
     GlobalEventsManager,
-    SharedModule
+    SharedModule,
+    NavbarGuard
   ],
   bootstrap: [AppComponent]
 })
