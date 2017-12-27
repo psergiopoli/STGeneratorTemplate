@@ -31,8 +31,6 @@ export class CardFormComponent implements OnInit {
   ngOnInit() {
     this.cardService.getModels().subscribe(models => {
       this.models = models;
-    }, error => {
-      this.globalMessageService.addMessage('Erro ao consultar modelos de cartas', 'danger', 10);
     });
 
     this.formulario = this.formBuilder.group({
@@ -65,8 +63,6 @@ export class CardFormComponent implements OnInit {
       this.cardService.createCard(this.formulario.value).subscribe( card => {
         this.globalMessageService.addMessage('Carta criada com sucesso', 'success', 10);
         this.router.navigate(['card/sec/' + uuid]);
-      }, error => {
-        this.globalMessageService.addMessage('Erro ao criar carta', 'danger', 10);
       });
     }else{      
       this.verificaValidacoesForm(this.formulario);

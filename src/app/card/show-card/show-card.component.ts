@@ -1,4 +1,3 @@
-import { GlobalMessageService } from './../../global-message/global-message.service';
 import { CardService } from './../card.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -23,8 +22,7 @@ export class ShowCardComponent implements OnInit {
 
   constructor(
     private cardService: CardService,
-    private route: ActivatedRoute,
-    private globalMessageService: GlobalMessageService,
+    private route: ActivatedRoute,    
     private router: Router,
     private fb: FacebookService
   ) {
@@ -48,7 +46,6 @@ export class ShowCardComponent implements OnInit {
         this.setCardValues(card);
       }, error => {
         this.router.navigate(['']);
-        this.globalMessageService.addMessage(error, 'danger', 10);
       });
     }else if(params['uuid']){
       this.shareUrl = environment.sitebaseurl+'/card/sec/'+params['uuid'];
@@ -56,7 +53,6 @@ export class ShowCardComponent implements OnInit {
         this.setCardValues(card);
       }, error => {
         this.router.navigate(['']);
-        this.globalMessageService.addMessage(error, 'danger', 10);
       });
     }
     });    

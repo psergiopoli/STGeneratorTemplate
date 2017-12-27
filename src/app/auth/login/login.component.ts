@@ -33,15 +33,12 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(result => {
-                if (result === true) {
-                    this.router.navigate(['/admin/manage']);
-                } else {
-                    this.error = 'Error';
-                    this.loading = false;
-                }
+                const token = result.token;
+                this.router.navigate(['/admin/manage']);
+                localStorage.setItem('currentUser', JSON.stringify({ username: this.model.username, token: token }));
             },
             error => {
-                this.error = error;
+                this.error = 'Senha ou Login incorreto(s)';
                 this.loading = false;
             }
         );
@@ -52,16 +49,7 @@ export class LoginComponent implements OnInit {
         this.loadingSignup = true;
         this.authenticationService.signup(this.model.username, this.model.password)
             .subscribe(result => {
-                if (result === true) {
-                    this.message = 'Success signup on plataform!';
-                } else {
-                    this.error = 'Error on creating user.';
-                }
-                this.loadingSignup = false;
-            },
-            error => {
-                this.error = error;
-                this.loadingSignup = false;
+                this.message = 'Cadastro efetuado com sucesso.';
             }
         );
     }

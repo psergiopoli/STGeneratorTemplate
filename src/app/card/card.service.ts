@@ -1,72 +1,39 @@
 import { Component, Injectable } from '@angular/core';
-import { Http, Headers, Response, RequestOptions, RequestMethod, Request } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { environment } from '@env/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class CardService {
 
   constructor(
-      private http: Http
+      private http: HttpClient
     ) {}
 
   paginatedCards(pageSize,page){
-    const options = new RequestOptions({url : environment.apibaseurl + '/card?page='+page+'&size='+pageSize, method: RequestMethod.Get });
-    return this.http.request(new Request(options)).map((response: Response) =>
-        response.json()
-    ).catch(e => {
-        return Observable.throw('Internal Error');
-    });
+    return this.http.get(environment.apibaseurl + '/card?page='+page+'&size='+pageSize);
   }
 
   createCard(card) {
-    const options = new RequestOptions({url : environment.apibaseurl + '/card', body: card, method: RequestMethod.Post });
-    return this.http.request(new Request(options)).map((response: Response) =>
-        response.json()
-    ).catch(e => {
-        return Observable.throw('Internal Error');
-    });
+    return this.http.post(environment.apibaseurl + '/card',card);
   }
 
   getModels(){
-    const options = new RequestOptions({url : environment.apibaseurl + '/model/list', method: RequestMethod.Get });
-    return this.http.request(new Request(options)).map((response: Response) =>
-        response.json()
-    ).catch(e => {
-        return Observable.throw('Internal Error');
-    });
+    return this.http.get(environment.apibaseurl + '/model/list');
   }
 
   getCard(cardId) {
-    const options = new RequestOptions({url : environment.apibaseurl + '/card/' + cardId, method: RequestMethod.Get });
-
-    return this.http.request(new Request(options)).map((response: Response) =>
-        response.json()
-    ).catch(e => {
-        return Observable.throw('Internal Error');
-    });
+    return this.http.get(environment.apibaseurl + '/card/' + cardId);
   }
 
   getCardByUUID(cardUUID){
-    const options = new RequestOptions({url : environment.apibaseurl + '/card/hash/' + cardUUID, method: RequestMethod.Get });
-    
-    return this.http.request(new Request(options)).map((response: Response) =>
-        response.json()
-    ).catch(e => {
-        return Observable.throw('Internal Error');
-    });
+    return this.http.get(environment.apibaseurl + '/card/hash/' + cardUUID);
   }
 
   countViewToCard(cardId){
-    const options = new RequestOptions({url : environment.apibaseurl + '/card/'+cardId, method: RequestMethod.Patch });
-    
-    return this.http.request(new Request(options)).map((response: Response) =>
-        response.json()
-    ).catch(e => {
-        return Observable.throw('Internal Error');
-    });
+    return this.http.patch(environment.apibaseurl + '/card/'+cardId,null);
   }
 }

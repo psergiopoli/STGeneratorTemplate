@@ -12,6 +12,10 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { FormGroupSelectComponent } from './form-group-select/form-group-select.component';
 import { FormGroupInputComponent } from './form-group-input/form-group-input.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppHttpInterceptor } from './app.http.interceptor';
+import { TokenInterceptor } from './token.interceptor';
 
 @NgModule({
   imports: [
@@ -20,7 +24,8 @@ import { FormGroupInputComponent } from './form-group-input/form-group-input.com
     ReactiveFormsModule,
     HttpModule,
     RouterModule,
-    FacebookModule
+    FacebookModule,
+    HttpClientModule
   ],
   declarations: [
     PaginateComponent,
@@ -31,6 +36,16 @@ import { FormGroupInputComponent } from './form-group-input/form-group-input.com
     FormGroupInputComponent
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppHttpInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     FacebookService
   ],
   exports: [

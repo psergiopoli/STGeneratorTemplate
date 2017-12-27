@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { GlobalMessageComponent } from './global-message/global-message.component';
 import { GlobalEventsManager } from './global.eventmanager';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 const appRoutes: Routes = [];
 
