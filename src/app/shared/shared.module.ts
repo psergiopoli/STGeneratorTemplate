@@ -15,7 +15,7 @@ import { FormGroupInputComponent } from './form-group-input/form-group-input.com
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppHttpInterceptor } from './app.http.interceptor';
-import { TokenInterceptor } from './token.interceptor';
+import { AppTokenInterceptor } from './app.token.interceptor';
 
 @NgModule({
   imports: [
@@ -43,7 +43,7 @@ import { TokenInterceptor } from './token.interceptor';
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
+      useClass: AppTokenInterceptor,
       multi: true
     },
     FacebookService

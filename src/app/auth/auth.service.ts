@@ -15,7 +15,7 @@ export class AuthenticationService {
 
     constructor(
         private http: HttpClient,
-        private router: Router,) {
+        private router: Router) {
         // set token if saved in local storage
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.token = currentUser && currentUser.token;

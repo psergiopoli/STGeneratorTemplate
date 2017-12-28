@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 
 @Injectable()
-export class TokenInterceptor implements HttpInterceptor {
+export class AppTokenInterceptor implements HttpInterceptor {
 
   constructor(private injector: Injector,private router: Router) {
 

@@ -1,9 +1,9 @@
-<div class="form-group" [ngClass]="aplicaCssErro(field)">
+<div class="form-group" [ngClass]="apllyErrorCss(field)">
     <label class="control-label" for="{{field}}">{{label}}</label>
     <select class="form-control">
         <option *ngFor="let option of options" value="{{option.value}}">{{option.label}}</option>
     </select>
-    <div class="child-error alert alert-danger">
-      Campo invalido ou vazio
+    <div *ngFor="let error of errors" class="child-error alert alert-danger">
+        {{error}}
     </div>
 </div>
