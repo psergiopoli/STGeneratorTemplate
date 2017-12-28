@@ -41,9 +41,7 @@ export class FormGroupComponent implements OnInit {
             this.errors.push("Campo obrigatório.");
           break;
           default:
-            console.log(error);
-            console.log(errors[error]);
-            this.errors.push("Campo inválido.");
+            this.errors.push("Campo inválido. <"+error+">");
           break;
         }
       });
